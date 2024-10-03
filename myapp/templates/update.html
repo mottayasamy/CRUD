@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Record</title>
+    <style>
+        body {
+            font-family: Poppins, sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            max-width: 400px;
+            width: 100%;
+        }
+
+        h2 {
+            text-align: center;
+            color: #FF9800;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        label {
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        input[type="text"],
+        textarea {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        input[type="submit"] {
+            background-color: #FF9800;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        input[type="submit"]:hover {
+            background-color: #FB8C00;
+        }
+
+        .link-container {
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #FF9800;
+            font-weight: bold;
+        }
+
+        a:hover {
+            color: #E65100;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Kamaraj College of Engineering and Technology</h2>
+        <h2>Web Applications using Django Framework</h2>
+        <h2>Mottaya Samy.K</h2>
+        <h2>Update Record</h2>
+        <form method="post">
+            {% csrf_token %}
+            <label for="name">Name:</label>
+            <input type="text" name="name" id="name" value="{{ instance.name }}" required>
+
+            <label for="description">Description:</label>
+            <textarea name="description" id="description" required>{{ instance.description }}</textarea>
+
+            <input type="submit" value="Update">
+        </form>
+        <div class="link-container">
+            <a href="{% url 'readtab' %}">Back to All Records</a>
+        </div>
+    </div>
+</body>
+
+</html>
